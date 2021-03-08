@@ -5,7 +5,6 @@ import io.micronaut.scheduling.annotation.Scheduled;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.client.HasAttributeNodeSelector;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
@@ -29,7 +28,7 @@ public class TestDataProvider {
 
     @Scheduled(fixedDelay = "10s")
     void insertDocument(){
-        var document = new HashMap<>();
+        var document = new HashMap<String, String>();
         document.put("first_name", faker.name().firstName());
         document.put("last_name", faker.name().lastName());
 
