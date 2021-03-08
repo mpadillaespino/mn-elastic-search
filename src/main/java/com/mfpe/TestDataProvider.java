@@ -34,7 +34,7 @@ public class TestDataProvider {
         document.put("last_name", faker.name().lastName());
 
         IndexRequest indexRequest = new IndexRequest()
-                .index("mn-es-idx")
+                .index(Constants.INDEX)
                 .id(UUID.randomUUID().toString())
                 .source(document, XContentType.JSON);
 
